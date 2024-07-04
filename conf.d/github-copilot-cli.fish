@@ -86,7 +86,7 @@ function ghce
     set -f GH_DEBUG "$GH_DEBUG"
     set -f GH_HOST "$GH_HOST"
 
-    set -f usage "Wrapper around `gh copilot execute` to execute a command based on a natural language description of the desired output effort.
+    set -f usage "Wrapper around `gh copilot explain` to explain a given input command in natural language.
 
 USAGE
     $funcname [flags] <prompt>
