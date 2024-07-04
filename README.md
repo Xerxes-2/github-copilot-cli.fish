@@ -1,16 +1,13 @@
 # github-copilot-cli.fish
 
-> [!IMPORTANT]  
-> This plugin is obsolete as GitHub is sunsetting Copilot CLI: https://gist.github.com/idan/325676d192b32f169b032fde2d866c2c#github-next--technical-preview-sunsets
-
-Make GitHub Copilot CLI's alias work for Fish shell. The current Copilot CLI in beta only supports bash-like syntax.
+Make GitHub Copilot CLI's alias work for Fish shell. The current Copilot CLI only supports bash, zsh and pwsh.
 
 ## How to install
 
 ### Via fisher
 
-```
-fisher install z11i/github-copilot-cli.fish
+```fish
+fisher install xerxes-2/github-copilot-cli.fish
 ```
 
 ### Manually
@@ -19,24 +16,22 @@ Copy the file `conf.d/github-copilot-cli.fish` to `$__fish_config_dir/conf.d/` o
 
 ## How to use
 
-Because Fish shell does [wildcards globbing](https://fishshell.com/docs/current/language.html#wildcards-globbing), the default aliases shipped with the CLI do not play well. Therefore I changed `?` to `!` for all aliases.
+Identical to the [original Copilot CLI Aliases](https://github.com/github/gh-copilot#set-up-optional-helpers) for bash, zsh and pwsh.
 
-- `!!`: Translate natural language to arbitrary shell commands
-- `git!`: Translate natural language to Git commands
-- `gh!`: Translate natural language to GitHub CLI commands
+- `ghcs` - `gh copilot suggest`
+- `ghce` - `gh copilot explain`
 
 ### Use your own aliases
 
 If you don't want the default aliases, what you can do now is to put these in your config.fish:
 
-```
-functions -e !! git! gh!
+```fish
+functions -e ghcs ghce
 ```
 
 And use your own aliases, for example, to use `,`:
 
-```
-alias , __copilot_what-the-shell
-alias ,g __copilot_git-assist
-alias ,gh __copilot_gh-assist
+```fish
+alias ,s __copilot_suggest
+alias ,e __copilot_explain
 ```
