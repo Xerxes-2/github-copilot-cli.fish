@@ -32,6 +32,6 @@ functions -e ghcs ghce
 And use your own aliases, for example, to use `,`:
 
 ```fish
-alias ,s __copilot_suggest
-alias ,e __copilot_explain
+alias ,s ghcs
+alias ,e ghce
 ```
