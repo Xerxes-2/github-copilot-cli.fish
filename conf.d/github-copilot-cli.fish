@@ -1,3 +1,15 @@
+function __fish_add_history
+    set -l cmd (string replace -- \n \\n (string join ' ' $argv) | string replace \\ \\\\)
+    if test -z $cmd
+        return
+    end
+    begin
+        echo -- '- cmd:' $cmd
+        and date +' when: %s'
+    end >>$__fish_user_data_dir/fish_history
+    and history merge
+end
+
 function ghcs
     set -f funcname "$_"
     set -f target shell
@@ -60,7 +72,7 @@ EXAMPLES
     if GH_DEBUG="$GH_DEBUG" GH_HOST="$GH_HOST" gh copilot suggest -t "$target" "$argv" --shell-out "$tmp_file"
         if test -s "$tmp_file"
             set -f fixed_cmd (cat "$tmp_file")
-            printf "%s\n" "$fixed_cmd"
+            __fish_add_history "$fixed_cmd"
             echo
             eval "$fixed_cmd"
         end
