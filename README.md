@@ -23,13 +23,7 @@ Identical to the [original Copilot CLI Aliases](https://github.com/github/gh-cop
 
 ### Use your own aliases
 
-If you don't want the default aliases, what you can do now is to put these in your config.fish:
-
-```fish
-functions -e ghcs ghce
-```
-
-And use your own aliases, for example, to use `,`:
+To use your own aliases, for example, to use `,`:
 
 ```fish
 alias ,s ghcs
